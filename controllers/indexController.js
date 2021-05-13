@@ -1,11 +1,14 @@
-let autos = require("../modulos/index");
+const db = require('../database/models')
 
 let indexController = {
     index: function (req, res, next) {
-        res.render('index', { 
-            autos: autos,
-            logueado: true,
-    });
+        db.Product.findAll()
+        .then((data) => {
+            res.render('index', {
+                autos: data,
+                logueado: true,
+            })
+        })    
     },
 }
 

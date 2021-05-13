@@ -1,11 +1,14 @@
-let autos =require("../modulos/index");
+const db = require('../database/models')
 
 let productsController = {
 
     show: function (req, res, next) {
-        res.render('product', {
-            auto: autos[req.params.id]
-        });
+        db.Product.findByPk(req.params.id)
+            .then((data) => {
+                res.render('product', {
+                    auto: data,
+                })
+            })
     },
 }
 
