@@ -7,20 +7,16 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
+        nombre: {
+            type: DataTypes.STRING
+
+        },
         url_img: {
             type: DataTypes.STRING
         },
         id_usuarios: {
             type: DataTypes.INTEGER
-
-        },
-        nombre_producto: {
-            type: DataTypes.STRING
-
-        },
-        fecha_creacion: {
-            type: DataTypes.DATE
-        },
+        },    
         marca: {
             type: DataTypes.STRING
         },
@@ -47,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
 
     let configs = {
         tableName: "producto",
-        timestamps: false
+        underscored: true
     }
 
     const Product = sequelize.define(alias, cols, configs);

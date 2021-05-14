@@ -1,17 +1,21 @@
 const db = require('../database/models')
-const Comentario = require('../database/models/Comentario')
+const op = db.Sequelize.Op;
 
 let productsController = {
 
     show: function (req, res, next) {
         db.Product.findByPk(req.params.id)
             .then((data) => {
-                db.Comentario.findAll()
-                    .then((Comentario) => {
+                db.Comentario.findAll({
+                    where: [
+                        { id_producto: { [op.like]: req.params.id} }
+                    ],
+                })
+                    .then((comentario) => {
                         db.Usuario.findAll()
                             .then((nombre) => {
                                 res.render('product', {
-                                    comentario: Comentario,
+                                    comentario: comentario,
                                     auto: data,
                                     usuario: nombre,
                                 })
