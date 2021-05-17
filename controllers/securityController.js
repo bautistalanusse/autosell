@@ -3,14 +3,14 @@ const op = db.Sequelize.Op;
 
 let securityController = {
     login: function (req, res, next) {
-        res.render('login', );
+       return res.render('login', );
     },
     authenticate: function (req, res) {
-        db.Usuario.findOne({ where: { mail: req.body.email }})
+        db.Usuario.findOne({ where: { mail: req.body.mail }})
         .then((user) => {
-            if (req.body.password == Usuario.contrasena ){
-                req.session.user = user
-                return res.redirect('/')
+            if (req.body.contrasena == Usuario.contrasena ){
+                req.session.user = user;
+                return res.redirect('/');
             }
 
             res.redirect('/login?failed=true')
@@ -29,7 +29,10 @@ let securityController = {
                 return res.send(error);
             })
         }
-        return res.render('register')
+        if (req.method == 'GET'){
+            return res.render('register')
+
+        }
     },
     logout: function(req,res) {
         req.session.destroy();
