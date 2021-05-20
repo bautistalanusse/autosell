@@ -38,8 +38,21 @@ const publicRoutes = [
   '/login', '/register'
 ]
 
-app.use(function (req, res, next) {
-  if (req.session.user != undefined) {
+
+app.use(function(req, res, next){
+  if(req.cookies.userId != undefined && req.session.user == undefined){
+    db.User.findByPk(req.cookies.userId)
+    .then( user => {
+      req.session.user = user;
+      return next();
+    })
+    .catch( e => { next(createError(e.status)) })
+  } else {
+    next()
+  }
+})
+app.use(function(req, res, next){
+  if(req.session.user != undefined){
     res.locals = req.session.user
   } else {
     if (!publicRoutes.includes(req.path)) {

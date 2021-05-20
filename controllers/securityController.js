@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs')
 const db = require('../database/models')
 const op = db.Sequelize.Op;
 
@@ -9,9 +10,11 @@ let securityController = {
         db.Usuario.findOne({ where: { mail: req.body.mail }})
         .then((user) => {
             console.log(user);
-            if (req.body.contrasena == user.contrasena ){
+            if (bcrypt.compareSync(req.body.contrasena, user.contrasena )){
                 req.session.user = user;
-
+                    if(req.body.rememberme){
+                        res.cookie('userId', user.id,{ maxAge: 1000 * 60 * 60 * 24})
+                    }
                 return res.redirect('/');
             }
 
@@ -23,6 +26,7 @@ let securityController = {
     },
     register: function(req, res) {
         if (req.method == 'POST'){
+            req.body.contrasena = bcrypt.hashSync(req.body.contrasena);
             db.Usuario.create(req.body)
             .then(() => {
                 res.redirect('/')
@@ -38,8 +42,8 @@ let securityController = {
     },
     logout: function(req,res) {
         req.session.destroy();
-
-        return res.redirect('/')
+        res.clearCookie('userId');
+        return res.redirect('/');
     }
 }
 

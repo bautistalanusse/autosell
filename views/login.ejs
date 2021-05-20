@@ -6,7 +6,12 @@
 
 <body>
 	<!-- Include Header -->
-	<%- include('./partials/header.ejs') %> 
+	<% if(locals.mail){ %>
+		<%- include('./partials/headerLogueado.ejs') %> 
+	<% } else{ %> 
+		<%- include('./partials/header.ejs') %>
+	<% } %> 
+
 	<!-- /Header -->
 	
 	<div class="main">
@@ -47,7 +52,9 @@
 
 							<div class="form-group form-button">
 								<input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+								<input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label>
 							</div>
+							
 						</form>
 					</div>
 				</div>

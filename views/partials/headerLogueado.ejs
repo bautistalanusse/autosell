@@ -51,12 +51,12 @@
 				</ul>
 	
 				<ul class="right-navbar">
-					<li><a href="profile">
-							<%= locals.name %>  <i class="fas fa-user"></i>
+					<li><a href="/profile/<%= locals.id %> ">
+						Hola!	<%= locals.nombre + ' ' + locals.apellido %>  <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
-						<form action="" method="post">
+						<form action="/logout" method="POST"> 
 							<button class="logout" type="submit">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
 							</button>
