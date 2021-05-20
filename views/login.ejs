@@ -14,53 +14,43 @@
 
 	<!-- /Header -->
 	
-	<div class="main">
-	
-		<!-- Sing in  Form -->
-		<section class="sign-in">
-			<div class="container">
-				<div class="signin-content">
-					<div class="signin-image">
-						<figure><img src="images/products/default-image.png" alt="sing up image"></figure>
-						<a href="/register" class="signup-image-link">No tenes cuenta?</a>
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<div class="row main-form bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo">
+					<h2><img src="/images/autosell/logo.png" alt=""></h2>
+				</span>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Log In</h2>
 					</div>
-	
-					<div class="signin-form">
-						<h2 class="form-title">Log in</h2>
-						<form method="POST" class="register-form" id="login-form">
-							<div class="form-group">
-								<label for="your_name">
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill"
-										viewBox="0 0 16 16">
-										<path
-											d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
-									</svg>
-								</label>
-								<input type="text" name="mail" id="your_name" placeholder="Email" />
+					<div class="row">
+						<form method="POST" class="form-group">
+							<div class="row">
+								<input type="text" name="mail" id="mail" class="form__input" placeholder="Email">
 							</div>
-
-							<div class="form-group">
-								<label for="your_pass">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill"
-										viewBox="0 0 16 16">
-										<path
-											d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
-									</svg>
-								</label>
-								<input type="password" name="contrasena" id="your_pass" placeholder="Contraseña" />
+							<div class="row">
+								<input type="password" name="contrasena" id="contrasena" class="form__input"
+									placeholder="Password">
 							</div>
-
-							<div class="form-group form-button">
-								<input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
-								<input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label>
+							<div class="row">
+								<input type="checkbox" name="remember_me" id="remember_me" class="">
+								<label for="remember_me">Remember Me!</label>
 							</div>
-							
+							<div class="row">
+								<input type="submit" value="Sign In" class="btn">
+							</div>
 						</form>
+					</div>
+					<div class="row">
+						<p>Don't have an account? <a class="link" href="/register">Register Here</a></p>
 					</div>
 				</div>
 			</div>
-		</section>
-	
+		</div>
 	</div>
 
 	<!-- include footer -->

@@ -9,6 +9,53 @@
 	<%- include("./partials/header") %> 
 	<!-- /Header -->
 
+	<div class="container-fluid">
+		<div class="row main-form bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo">
+					<h2><img src="/images/autosell/logo.png" alt=""></h2>
+				</span>
+				<h4 class="company_title"> Autosell </h4>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Register</h2>
+					</div>
+					<div class="row">
+						<form method="POST" class="form-group">
+							<div class="row">
+								<input type="text" name="mail" id="mail" class="form__input" placeholder="Email">
+							</div>
+							<div class="row">
+								<input type="password" name="contrasena" id="contrasena" class="form__input"
+									placeholder="Password">
+							</div>
+							<div class="row">
+								<input type="text" name="nombre" id="name" class="form__input" placeholder="Nombre" />
+							</div>
+							<div class="row">
+								<input type="text" name="apellido" id="name" class="form__input" placeholder="Apellido" />
+							</div>
+							<div class="row">
+								<input type="integer" name="numero_telefono" id="telefono" class="form__input" placeholder="Telefono" />
+							</div>
+							<div class="row">
+								<input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form__input" placeholder="Fecha de nacimiento">
+							</div>
+							<div class="row">
+								<input type="submit" value="Register" class="btn">
+							</div>
+						</form>
+					</div>
+					<div class="row">
+						<p>You already have an account? <a class="link" href="/register">Sing In Here</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 			<!-- Show the "ultimos" products -->
 			<div class="main">
 			
