@@ -8,15 +8,17 @@ let securityController = {
     authenticate: function (req, res) {
         db.Usuario.findOne({ where: { mail: req.body.mail }})
         .then((user) => {
-            if (req.body.contrasena == Usuario.contrasena ){
+            console.log(user);
+            if (req.body.contrasena == user.contrasena ){
                 req.session.user = user;
+
                 return res.redirect('/');
             }
 
             res.redirect('/login?failed=true')
         })
         .catch((error) => {
-            return res.send(error);
+            throw error;
         })
     },
     register: function(req, res) {
