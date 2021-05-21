@@ -9,67 +9,60 @@
 		<%- include('./partials/headerLogueado.ejs') %> 
 	<% } else{ %> 
 		<%- include('./partials/header.ejs') %>
-	<% } %> 
+	<% } %> 	
 	<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			
-			<!-- Show the "ultimos" products -->
-			<div class="main">
-			
-				<!-- Sign up form -->
-				<section class="signup">
-					<div class="register-container">
-						<div class="signup-content">
-							<div class="signup-form">
-								<h2 class="form-title">Agrega tu auto</h2>
-								<form method="POST" class="register-form" id="register-form">
-									<div class="form-group">
-										
-										<input type="text" name="name" id="name" placeholder="Marca" />
-									</div>
-									<div class="form-group">
-										
-										<input type="email" name="email" id="email" placeholder="Modelo" />
-									</div>
-									<div class="form-group">
-									
-										<input type="password" name="pass" id="pass" placeholder="Año" />
-									</div>
-									<div class="form-group">
-										
-										<input type="email" name="email" id="email" placeholder="Color" />
-									</div>
-									<div class="form-group">
-							
-										<input type="email" name="email" id="email" placeholder="Caracteristicas" />
-									</div>
-									<div class="form-group">
-										
-										<input type="email" name="email" id="email" placeholder="Precio" />
-									</div>
 
-								
-									<div class="form-group form-button">
-										<input type="submit" name="signup" id="signup" class="form-submit" value="Confirmar" />
-									</div>
-								</form>
+
+
+	<div class="container-fluid">
+		<div class="row main-form bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo">
+					<h2><img src="/images/autosell/logo.png" alt=""></h2>
+				</span>
+				<h4 class="company_title"> Autosell </h4>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Register</h2>
+					</div>
+					<div class="row">
+						<form method="POST" class="form-group">
+							<div class="row">
+								<input type="text" name="marca" id="mail" class="form__input" placeholder="Marca">
 							</div>
-							<div class="agregar-foto">
-								<label class="form-label" for="customFile">
-								</label>
+							<div class="row">
+								<input type="text" name="color" id="contrasena" class="form__input"
+									placeholder="Color">
+							</div>
+							<div class="row">
+								<input type="text" name="modelo" id="modelo" class="form__input" placeholder="Modelo" />
+							</div>
+							<div class="row">
+								<input type="text" name="anio" id="anio" class="form__input" placeholder="Año" />
+							</div>
+							<div class="row">
+								<input type="text" name="caracteristicas" id="caracteristicas" class="form__input" placeholder="Caracteristicas" />
+							</div>
+							<div class="row">
+								<input type="integer" name="precio" id="fecha_nacimiento" class="form__input" placeholder="Precio">
+							</div>
+							<div class="row">
+							</label>
 									<input type="file" class="form-control" id="customFile" /> </label>	
 							</div>
-						
-						</div>
+							<div class="row">
+								<input type="submit" value="Agregar" class="btn">
+							</div>
+							
+						</form>
 					</div>
-				</section>
-			
+				</div>
 			</div>
-
-
+		</div>
+	</div>
 	<!--include footer -->
 	<%- include("./partials/footer") %> 
 
