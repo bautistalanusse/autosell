@@ -16,7 +16,7 @@ udpdate: function(req, res) {
         }
         if (req.method == 'GET') {
             db.Usuario.findByPk(req.params.id)
-            .then((data) => {
+            .then((data) => {   
                 return res.render('profile-edit', {
                     user: data,
                 })
