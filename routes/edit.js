@@ -3,6 +3,6 @@ var router = express.Router();
 let editController = require('../controllers/editController')
 
 
-router.get('/', editController.index);
+router.get('/:id', editController.index);
 
 module.exports = router;

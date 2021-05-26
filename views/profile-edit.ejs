@@ -5,59 +5,50 @@
 
 <body>
 	<!-- include Header -->
-	<%- include('./partials/header.ejs') %> 
+	<% if(locals.mail){ %>
+		<%- include('./partials/headerLogueado.ejs') %> 
+	<% } else{ %> 
+		<%- include('./partials/header.ejs') %>
+	<% } %> 
 
 	<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<!-- Show the "ultimos" products -->
-					
-			<!-- Show the "ultimos" products -->
-			<div class="main">
-					
-			<!-- Sign up form -->
-				<section class="signup">
-					<div class="register-container">
-						<div class="signup-content">
-							<div class="signup-form">
-								<h2 class="form-title">Editar Perfil</h2>
-								<form method="POST" class="register-form" id="register-form">
-									<div class="form-group">
-					
-										<input type="text" name="name" id="name" placeholder="Nombre" />
-									</div>
-					
-									<div class="form-group">
-					
-										<input type="email" name="email" id="email" placeholder="Apellido" />
-									</div>
-					
-									<div class="form-group">
-					
-										<input type="password" name="pass" id="pass" placeholder="Email" />
-									</div>
-					
-					
-									<div class="form-group form-button">
-										<input type="submit" name="signup" id="signup" class="form-submit"
-															value="Confirmar" />
-									</div>
-								</form>
-						</div>
-						<div class="agregar-foto">
-							<label class="form-label" for="customFile">
-							</label>
-								<input type="file" class="form-control" id="customFile" /> </label>
-						</div>
-					
+	<div class="container-fluid">
+		<div class="row main-form bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo">
+					<h2><img src="/images/autosell/logo.png" alt=""></h2>
+				</span>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Register</h2>
+					</div>
+					<div class="row">
+						<form method="POST" class="form-group">
+							<div class="row">
+								<input type="text" name="nombre" id="mail" class="form__input" placeholder="Nombre">
+							</div>
+							<div class="row">
+								<input type="text" name="apellido" id="contrasena" class="form__input"
+									placeholder="Apellido">
+							</div>
+							<div class="row">
+								<input type="text" name="mail" id="modelo" class="form__input" placeholder="Mail" />
+							</div>
+							<div class="row">
+								<input type="text" name="nomero_telefono" id="caracteristicas" class="form__input" placeholder="Numero telefono" />
+							</div>
+							<div class="row">
+								<input type="submit" value="Confirmar" class="btn">
+							</div>
+						</form>
 					</div>
 				</div>
-			</section>
-					
+			</div>
 		</div>
-
+	</div>
 
 	<!--include footer -->
 	<%- include('./partials/footer.ejs') %> 

@@ -6,7 +6,11 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partials/header.ejs') %>
+	<% if(locals.mail){ %>
+		<%- include('./partials/headerLogueado.ejs') %> 
+	<% } else{ %> 
+		<%- include('./partials/header.ejs') %>
+	<% } %> 
 	<!-- /Header -->
 
 	<!-- product detail -->
@@ -42,7 +46,7 @@
 
 					</section>
 					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<input name="texto" class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
