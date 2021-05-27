@@ -23,22 +23,21 @@
 			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
 				<div class="container-fluid">
 					<div class="row">
-						<h2>Register</h2>
+						<h2><%= locals.nombre + ' ' + locals.apellido %></h2>
 					</div>
 					<div class="row">
 						<form method="POST" class="form-group">
 							<div class="row">
-								<input type="text" name="nombre" id="mail" class="form__input" placeholder="Nombre">
+								<input type="text" name="nombre"  class="form__input" placeholder="Nombre">
 							</div>
 							<div class="row">
-								<input type="text" name="apellido" id="contrasena" class="form__input"
-									placeholder="Apellido">
+								<input type="text" name="apellido"  class="form__input" placeholder="Apellido">
 							</div>
 							<div class="row">
-								<input type="text" name="mail" id="modelo" class="form__input" placeholder="Mail" />
+								<input type="text" name="mail"  class="form__input" placeholder="Mail" />
 							</div>
 							<div class="row">
-								<input type="text" name="nomero_telefono" id="caracteristicas" class="form__input" placeholder="Numero telefono" />
+								<input type="text" name="numero_telefono"  class="form__input" placeholder="Numero telefono" />
 							</div>
 							<div class="row">
 								<input type="submit" value="Confirmar" class="btn">
