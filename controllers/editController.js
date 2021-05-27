@@ -5,7 +5,7 @@ let editController = {
 udpdate: function(req, res) {
         if (req.method == 'POST') {
             db.Usuario.update(req.body, {
-                where: { id: { [op.like]: req.params.id }}
+                where: { id: { [op.like]: req.session.user.id }}
             })
                 .then(() => {
                     res.redirect('/profile')

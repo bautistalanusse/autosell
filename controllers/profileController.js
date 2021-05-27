@@ -3,11 +3,13 @@ const op = db.Sequelize.Op;
 
 let profileController = {
    index: function (req, res, next) {
-        db.Usuario.findByPk(req.params.id)
+       console.log(req.session.user)
+       db.Product.findAll()
+        db.Usuario.findByPk(req.session.user.id)
         .then((data) => {
             db.Product.findAll({
                 where: [
-                    { id_usuarios: { [op.like]: req.params.id} }
+                    { id_usuarios: { [op.like]: req.session.user.id} }
                 ],
             })
             .then((autos) => {

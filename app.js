@@ -34,8 +34,8 @@ app.use(session(
     saveUninitialized: true
   }))
 
-const publicRoutes = [
-  '/login', '/register'
+const privateRoutes = [
+  '/profile', '/profile-edit', '/product-add'
 ]
 
 
@@ -55,7 +55,7 @@ app.use(function(req, res, next){
   if(req.session.user != undefined){
     res.locals = req.session.user
   } else {
-    if (!publicRoutes.includes(req.path)) {
+    if (privateRoutes.includes(req.path)) {
       return res.redirect('/login')
     }
   }

@@ -23,8 +23,8 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"> <%= user.nombre %> <%= user.apellido %>   
-						<a href="/profile-edit/<%= user.id %> ">
+					<h1 class="main-title"> <%= locals.nombre %> <%= locals.apellido %>   
+						<a href="/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
@@ -32,11 +32,11 @@
 				</div>
 				<div>
 					<ul class="">
-						<li><%= user.fecha_nacimiento %> </li>
+						<li><%= locals.fecha_nacimiento %> </li>
 						<br>
-						<li>TELEFONO: <%= user.numero_telefono %> </li>
+						<li>TELEFONO: <%= locals.numero_telefono %> </li>
 						<br>
-						<li> MAIL: <%= user.mail %> </li>
+						<li> MAIL: <%= locals.mail %> </li>
 					</ul>
 				</div>
 			</div>

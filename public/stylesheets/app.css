@@ -135,9 +135,11 @@ hr {
 .left-navbar,
 .right-navbar {
   font-size: 1.5em;
+  color: white;
 }
 
 .logout{
+  color: white;
   background: transparent;
   border: 0px;
   cursor: pointer;
