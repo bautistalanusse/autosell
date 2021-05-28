@@ -25,23 +25,23 @@
 					<div class="row">
 						<form method="POST" class="form-group">
 							<div class="row">
-								<input type="text" name="mail" id="mail" class="form__input" placeholder="Email">
+								<input type="email" name="mail" id="mail" class="form__input" placeholder="Email" required>
 							</div>
 							<div class="row">
-								<input type="password" name="contrasena" id="contrasena" class="form__input"
-									placeholder="Password">
+								<input type="password" minlength = "3" name="contrasena" id="contrasena" class="form__input"
+									placeholder="Password" required>
 							</div>
 							<div class="row">
-								<input type="text" name="nombre" id="name" class="form__input" placeholder="Nombre" />
+								<input type="text" name="nombre" id="name" class="form__input" placeholder="Nombre" required/>
 							</div>
 							<div class="row">
-								<input type="text" name="apellido" id="name" class="form__input" placeholder="Apellido" />
+								<input type="text" name="apellido" id="name" class="form__input" placeholder="Apellido" required/>
 							</div>
 							<div class="row">
 								<input type="integer" name="numero_telefono" id="telefono" class="form__input" placeholder="Telefono" />
 							</div>
 							<div class="row">
-								<input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form__input" placeholder="Fecha de nacimiento">
+								<input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form__input" placeholder="Fecha de nacimiento" required>
 							</div>
 							<div class="row">
 								<input type="submit" value="Register" class="btn">

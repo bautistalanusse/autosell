@@ -26,6 +26,13 @@ let productsController = {
 
             })
     },
+    index: function (req, res,) {
+        db.Comentario.create({...req.body, id_usuario: req.session.user.id})
+            .then(() => {
+                res.redirect("/")    
+            })
+        
+    }
 }
 
 module.exports = productsController;

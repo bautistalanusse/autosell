@@ -4,6 +4,6 @@ let productsController = require('../controllers/productsController')
 
 
 router.get('/:id', productsController.show);
-
+router.post('/:id', productsController.index);
 
 module.exports = router;
