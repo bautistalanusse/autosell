@@ -27,7 +27,7 @@ let productsController = {
             })
     },
     index: function (req, res,) {
-        db.Comentario.create({...req.body, id_usuario: req.session.user.id})
+        db.Comentario.create({...req.body, id_usuario: req.session.user.id, id_producto: req.params.id})
             .then(() => {
                 res.redirect("/")    
             })
