@@ -6,7 +6,6 @@ let indexController = {
         .then((data) => {
             res.render('index', {
                 autos: data,
-                logueado: true,
             })
         })    
     },

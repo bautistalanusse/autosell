@@ -1,19 +1,16 @@
-let autos = require('../modulos/index')
+const db = require('../database/models')
+const op = db.Sequelize.Op;
 
 let searchController = {
-    search: function (req, res, next) {
-
-        let result = []
-        for (let i = 0; i < autos.length; i++) {
-
-            if (autos[i].nombre.includes(req.query.search.toLowerCase())) {
-                result.push(autos[i])
-            }
-        };
-        res.render('search-results', {
-            autos: result
+    search: function (req, res) {
+        db.Product.findAll({
+            where: { nombre: { [op.like]: req.query.search.toLowerCase() } },
         })
-
+        .then((result) => {
+            res.render('search-results', {
+                autos: result,
+            })
+        })
     },
 }
 
