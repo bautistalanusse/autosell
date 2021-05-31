@@ -11,8 +11,9 @@ let productsController = {
         })
         .then((data) => {
             db.Comentario.findAll({
+                where: { id_producto: req.params.id},
                 include: [
-                    { association: 'usuario' }
+                    { association: 'usuario' }   
                 ]
             })
             .then((comentario) => {
@@ -27,7 +28,7 @@ let productsController = {
         })
     },
 
-    show2: function (req, res, next) {
+  /*   show2: function (req, res, next) {
         db.Product.findByPk(req.params.id)
             .then((data) => {
                 db.Comentario.findAll({
@@ -48,14 +49,18 @@ let productsController = {
 
                     })
 
-            })
-    },
+            }) 
+    }, */
+
     index: function (req, res,) {
         db.Comentario.create({...req.body, id_usuario: req.session.user.id, id_producto: req.params.id})
             .then(() => {
                 res.redirect("/")    
             })
         
+            .catch((error) => {
+                res.send(error)
+            })
     }
 }
 
