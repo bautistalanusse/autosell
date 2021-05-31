@@ -16,7 +16,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= auto.marca + " "+  auto.modelo + " "+ auto.anio + " "+  auto.color %> </h2> 
+			<h2 class="products-title"> <%= auto.marca + " "+  auto.modelo + " "+ auto.anio + " "+  auto.color %> </h2> 
 			<p class="product-detail-description">
 				<a href="/product-add">Editar</a>
 			</p>
@@ -35,22 +35,23 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile/<%= comentarios[i].usuario.id %> ">
-									<%= comentarios[i].usuario.apellido %></a> </strong>
+									<strong> <a href="/profile/<%= comentarios[i].usuario.id %> ">
+										<%= comentarios[i].usuario.nombre %> <%= comentarios[i].usuario.apellido %></a> </strong>
 									<%= comentarios[i].texto %>
 								</p>
 							</div>
 						</article>
 						<% } %>
-						
-						
-
 					</section>
-					<form class="form" action="" method="POST">
-						<input name="texto" class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
+
+					<% if (locals.mail) { %>
+						<form class="form" action="" method="POST">
+							<input name="texto" class="form-input" type="text" value="" placeholder="Agregar comentario">
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+						<hr>
+					<% } %>
+					
 				</div>
 			</div>
 		</div>
