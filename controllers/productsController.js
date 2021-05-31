@@ -3,7 +3,31 @@ const op = db.Sequelize.Op;
 
 let productsController = {
 
-    show: function (req, res, next) {
+    show: function (req, res) {
+        db.Product.findByPk(req.params.id, {
+            include: [
+                { association: 'usuario' }
+            ]
+        })
+        .then((data) => {
+            db.Comentario.findAll({
+                include: [
+                    { association: 'usuario' }
+                ]
+            })
+            .then((comentario) => {
+                return res.render('product', {
+                    auto: data,
+                    comentarios: comentario,
+                })
+            })
+        })
+        .catch((error) => {
+            res.send(error)
+        })
+    },
+
+    show2: function (req, res, next) {
         db.Product.findByPk(req.params.id)
             .then((data) => {
                 db.Comentario.findAll({
