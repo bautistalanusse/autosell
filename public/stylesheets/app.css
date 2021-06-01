@@ -243,6 +243,9 @@ form{
 
 /*====== Products ======*/
 
+.vendedor{
+  margin-left: 20px;
+}
 .imagen-producto{
   margin-top: auto;
   height: 200px;

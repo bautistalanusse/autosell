@@ -7,6 +7,7 @@ let searchController = {
             where: { nombre: { [op.like]: req.query.search.toLowerCase() } },
         })
         .then((result) => {
+            console.log(result);
             res.render('search-results', {
                 autos: result,
             })

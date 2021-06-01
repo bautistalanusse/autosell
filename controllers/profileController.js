@@ -2,10 +2,8 @@ const db = require('../database/models')
 const op = db.Sequelize.Op;
 
 let profileController = {
-   index: function (req, res, next) {
-       console.log(req.session.user)
-       db.Product.findAll()
-        db.Usuario.findByPk(req.session.user.id)
+   index: function (req, res) {
+    db.Usuario.findByPk(req.session.user.id)
         .then((data) => {
             db.Product.findAll({
                 where: [
@@ -17,6 +15,9 @@ let profileController = {
                     user: data,
                     autos: autos,
                 })
+            })
+            .catch((error) => {
+                res.send(error)
             })
         })    
     },
