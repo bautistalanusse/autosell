@@ -4,18 +4,25 @@ const op = db.Sequelize.Op;
 let editController = {
 udpdate: function(req, res) {
         if (req.method == 'POST') {
-            db.Usuario.update(req.body, {
-                where: { id: { [op.like]: req.session.user.id }}
+                db.Usuario.update(req.body, {
+                where: { id:  req.session.user.id }
             })
-                .then(() => {
-                    res.redirect('/profile')
+                .then((user) => {
+                    req.session.user = user;
+                    res.redirect('/login')
                 })
                 .catch((error) => {
                     return res.send(error);
                 })
         }
         if (req.method == 'GET') {  
-                return res.render('profile-edit',)
+                return res.render('profile-edit',{
+                    nombre: req.session.user.nombre,
+                    apellido: req.session.user.apellido,
+                    mail: req.session.user.mail,
+                    telefono: req.session.user.numero_telefono,
+
+                })
 
         }
     },

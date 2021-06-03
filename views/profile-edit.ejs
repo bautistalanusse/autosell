@@ -28,16 +28,16 @@
 					<div class="row">
 						<form method="POST" class="form-group">
 							<div class="row">
-								<input type="text" name="nombre"  class="form__input" placeholder="Nombre">
+								<input type="text" name="nombre" value="<%= nombre%>" required class="form__input" placeholder="Nombre">
 							</div>
 							<div class="row">
-								<input type="text" name="apellido"  class="form__input" placeholder="Apellido">
+								<input type="text" name="apellido" value="<%= apellido%>" required class="form__input" placeholder="Apellido">
 							</div>
 							<div class="row">
-								<input type="text" name="mail"  class="form__input" placeholder="Mail" />
+								<input type="text" name="mail" value="<%= mail%>" required class="form__input" placeholder="Mail" />
 							</div>
 							<div class="row">
-								<input type="text" name="numero_telefono"  class="form__input" placeholder="Numero telefono" />
+								<input type="text" name="numero_telefono" value="<%= numero_telefono%>" required class="form__input" placeholder="Numero telefono" />
 							</div>
 							<div class="row">
 								<input type="submit" value="Confirmar" class="btn">
