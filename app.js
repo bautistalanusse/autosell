@@ -9,7 +9,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products')
 var securityRouter = require('./routes/security')
-var loginRouter = require('./routes/login')
 var addRouter = require('./routes/add')
 var profileRouter = require('./routes/profile')
 var searchRouter = require('./routes/search')
@@ -67,7 +66,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/', securityRouter);
-app.use('/login', loginRouter);
 app.use('/product-add', addRouter);
 app.use('/profile', profileRouter);
 app.use('/search-result', searchRouter);
