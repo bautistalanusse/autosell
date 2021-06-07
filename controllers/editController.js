@@ -11,7 +11,7 @@ udpdate: function(req, res) {
                     db.Usuario.findByPk(req.session.user.id)
                         .then(usuario => {
                             req.session.user = usuario;
-                    res.redirect('/login')
+                    res.redirect('/profile')
                         })
                 })
                 .catch((error) => {
