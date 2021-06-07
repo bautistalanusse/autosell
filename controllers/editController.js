@@ -8,8 +8,11 @@ udpdate: function(req, res) {
                 where: { id:  req.session.user.id }
             })
                 .then((user) => {
-                    req.session.user = user;
+                    db.Usuario.findByPk(req.session.user.id)
+                        .then(usuario => {
+                            req.session.user = usuario;
                     res.redirect('/login')
+                        })
                 })
                 .catch((error) => {
                     return res.send(error);

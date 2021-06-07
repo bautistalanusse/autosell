@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         anio: {
-            type: DataTypes.DATE
+            type: DataTypes.INTEGER
         },
         caracteristicas: {
             type: DataTypes.STRING

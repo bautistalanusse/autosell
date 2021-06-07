@@ -28,7 +28,7 @@
 						<h2>Agregar Producto</h2>
 					</div>
 					<div class="row">
-						<form method="POST" class="form-group">
+						<form method="POST" class="form-group" enctype="multipart/form-data">
 							<div class="row">
 								<input type="text" name="marca" id="mail" class="form__input" placeholder="Marca">
 							</div>
@@ -40,20 +40,17 @@
 									placeholder="Color">
 							</div>
 							<div class="row">
-								<input type="text" name="anio" id="anio" class="form__input" placeholder="Año" />
+								<input type="number" name="anio" id="anio" class="form__input" placeholder="Año" />
 							</div>
 							<div class="row">
 								<input type="text" name="caracteristicas" id="caracteristicas" class="form__input" placeholder="Caracteristicas" />
 							</div>
 							<div class="row">
-								<input type="integer" name="precio" id="fecha_nacimiento" class="form__input" placeholder="Precio">
-							</div>
-							<div class="row">
-								<input type="text" name="url_img" class="form__input" placeholder="URL Imagen">
+								<input type="integer" name="precio" id="precio" class="form__input" placeholder="Precio">
 							</div>
 							<div class="row">
 							</label>
-									<input type="file" class="form-control" id="customFile" /> </label>	
+									<input type="file" class="form-control" id="product" name="product"> </label>	
 							</div>
 							<div class="row">
 								<input type="submit" value="Agregar" class="btn">

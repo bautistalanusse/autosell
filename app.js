@@ -14,7 +14,7 @@ var profileRouter = require('./routes/profile')
 var searchRouter = require('./routes/search')
 var editRouter = require('./routes/edit')
 var demoRouter = require('./routes/demo')
-
+var db = require('./database/models')
 
 var app = express();
 
@@ -40,7 +40,7 @@ const privateRoutes = [
 
 app.use(function(req, res, next){
   if(req.cookies.userId != undefined && req.session.user == undefined){
-    db.User.findByPk(req.cookies.userId)
+    db.Usuario.findByPk(req.cookies.userId)
     .then( user => {
       req.session.user = user;
       return next();
