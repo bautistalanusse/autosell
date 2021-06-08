@@ -15,6 +15,7 @@ var searchRouter = require('./routes/search')
 var editRouter = require('./routes/edit')
 var demoRouter = require('./routes/demo')
 var db = require('./database/models')
+var productEditRouter = require('./routes/productEdit')
 
 var app = express();
 
@@ -70,6 +71,7 @@ app.use('/product-add', addRouter);
 app.use('/profile', profileRouter);
 app.use('/search-result', searchRouter);
 app.use('/profile-edit', editRouter);
+app.use('/product-edit', productEditRouter);
 
 
 // catch 404 and forward to error handler

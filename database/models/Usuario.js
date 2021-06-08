@@ -27,6 +27,9 @@ module.exports = ( sequelize, DataTypes) =>{
         numero_telefono: {
             type: DataTypes.STRING
         },
+        foto:{
+            type: DataTypes.STRING
+        },
 
     }
 

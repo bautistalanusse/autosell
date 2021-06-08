@@ -254,7 +254,7 @@ form{
 }
 .products-wrapper {
   margin-bottom: 30px;
-  min-height: 500px;
+  min-height: 100px;
 }
 
 .products-title {
@@ -556,7 +556,7 @@ textarea.form-input {
 }
 
 .foto-perfil{
-  border-radius: 50%;
+  border-radius: 30%;
 }
 
 .main-title{

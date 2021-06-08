@@ -26,7 +26,7 @@
 						<h2><%= locals.nombre + ' ' + locals.apellido %></h2>
 					</div>
 					<div class="row">
-						<form method="POST" class="form-group">
+						<form method="POST" class="form-group" enctype="multipart/form-data">
 							<div class="row">
 								<input type="text" name="nombre" value="<%= nombre%>" required class="form__input" placeholder="Nombre">
 							</div>
@@ -38,6 +38,10 @@
 							</div>
 							<div class="row">
 								<input type="text" name="numero_telefono" value="<%= numero_telefono%>" required class="form__input" placeholder="Numero telefono" />
+							</div>
+							<div class="row">
+							</label>
+									<input type="file" class="form-control" id="foto" name="foto"> </label>	
 							</div>
 							<div class="row">
 								<input type="submit" value="Confirmar" class="btn">
