@@ -35,7 +35,7 @@ app.use(session(
   }))
 
 const privateRoutes = [
-  '/profile', '/profile-edit', '/product-add'
+  '/profile', '/profile-edit', '/product-add', '/product-edit'
 ]
 
 
