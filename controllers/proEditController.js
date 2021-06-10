@@ -4,6 +4,7 @@ const op = db.Sequelize.Op;
 let proEditController = {
 index: function(req, res) {
         if (req.method == 'POST') {
+            
             let product = {
                 nombre: req.body.marca + ' ' + req.body.modelo + ' ' + req.body.color + ' ' + req.body.anio,
                 marca: req.body.marca,
@@ -13,11 +14,11 @@ index: function(req, res) {
                 caracteristicas: req.body.caracteristicas,
                 precio: req.body.precio,
             }
-            db.Usuario.update(product, {
+            db.Product.update(product, {
                 where: { id: req.params.id }
             })
-                .then((auto) => {
-                    res.redirect('/')
+                .then(() => {
+                   return res.redirect('/')
                 })
                 .catch((error) => {
                     return res.send(error);
@@ -26,9 +27,14 @@ index: function(req, res) {
         if (req.method == 'GET') {
             db.Product.findByPk(req.params.id)
             .then((auto) => {
-                return res.render('product-edit',{
-                    auto: auto,
-                })
+                if(req.session.user.id == auto.id_usuarios){
+                    return res.render('product-edit', {
+                        auto: auto,
+                    })
+                } else{
+                    return res.redirect('/products/' + req.params.id)
+                }
+                
             })  
                 
 

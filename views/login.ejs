@@ -6,7 +6,7 @@
 
 <body>
 	<!-- Include Header -->
-	<% if(locals.mail){ %>
+	<% if(locals.user.mail){ %>
 		<%- include('./partials/headerLogueado.ejs') %> 
 	<% } else{ %> 
 		<%- include('./partials/header.ejs') %>

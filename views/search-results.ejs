@@ -6,7 +6,7 @@
 
 <body>
 	<!-- include Header -->
-	<% if(locals.mail){ %>
+	<% if(locals.user.mail){ %>
 		<%- include('./partials/headerLogueado.ejs') %> 
 	<% } else{ %> 
 		<%- include('./partials/header.ejs') %>
@@ -27,7 +27,7 @@
 					<section class="product-box">
 						<a href="/products/<%= autos[i].id %> ">
 							<figure class="product-box_image">
-								<img class="imagen-producto" src="<%= autos[i].url_img%>" alt="cafetera moulinex">
+								<img class="imagen-producto" src="/images/products/<%= autos[i].url_img%>" alt="cafetera moulinex">
 							</figure>
 							<article class="product-box_data">
 								<h2>

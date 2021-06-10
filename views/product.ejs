@@ -6,7 +6,7 @@
 
 <body>
 	<!-- Header -->
-	<% if(locals.mail){ %>
+	<% if(locals.user.mail){ %>
 		<%- include('./partials/headerLogueado.ejs') %> 
 	<% } else{ %> 
 		<%- include('./partials/header.ejs') %>
@@ -17,9 +17,15 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"> <%= auto.marca + " "+  auto.modelo + " "+ auto.anio + " "+  auto.color %> </h2> 
+			<% if (locals.user && locals.user.id == auto.id_usuarios) { %>
 			<p class="product-detail-description">
-				<a href="/product-edit/<%= auto.id %> ">Editar</a>
+				<a href="/product-edit/<%= auto.id %>">Editar</a>
 			</p>
+			<p class="product-detail-description">
+				<a href="/delete/<%= auto.id %>">Borrar</a>
+			</p>
+			<% } %>
+			
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -46,7 +52,7 @@
 						<% } %>
 					</section>
 
-					<% if (locals.mail) { %>
+					<% if (locals.user.mail) { %>
 						<form class="form" action="" method="POST">
 							<input name="texto" class="form-input" type="text" value="" placeholder="Agregar comentario">
 							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>

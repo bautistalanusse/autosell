@@ -53,7 +53,7 @@ app.use(function(req, res, next){
 })
 app.use(function(req, res, next){
   if(req.session.user != undefined){
-    res.locals = req.session.user
+    res.locals.user = req.session.user
   } else {
     if (privateRoutes.includes(req.path)) {
       return res.redirect('/login')

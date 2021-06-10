@@ -6,7 +6,7 @@
 
 <body>
 	<!--include Header -->
-	<% if(locals.mail){ %>
+	<% if(locals.user.mail){ %>
 		<%- include('./partials/headerLogueado.ejs') %> 
 	<% } else{ %> 
 		<%- include('./partials/header.ejs') %>
@@ -22,11 +22,11 @@
 				<br>
 				<br>
 				<br>
-				<img src="/images/user/<%= locals.foto %> " alt="foto de perfil" class="foto-perfil">
+				<img src="/images/user/<%= locals.user.foto %> " alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"> <%= locals.nombre %> <%= locals.apellido %>   
+					<h1 class="main-title"> <%= locals.user.nombre %> <%= locals.user.apellido %>   
 						<a href="/profile-edit">
 							<i class="fas fa-cog"></i> 
 						</a>	
@@ -36,11 +36,11 @@
 				</div>
 				<div>
 					<ul class="">
-						<li><%= locals.fecha_nacimiento %> </li>
+						<li><%= locals.user.fecha_nacimiento %> </li>
 						<br>
-						<li>TELEFONO: <%= locals.numero_telefono %> </li>
+						<li>TELEFONO: <%= locals.user.numero_telefono %> </li>
 						<br>
-						<li> MAIL: <%= locals.mail %> </li>
+						<li> MAIL: <%= locals.user.mail %> </li>
 					</ul>
 				</div>
 			</div>
