@@ -16,6 +16,7 @@ var editRouter = require('./routes/edit')
 var demoRouter = require('./routes/demo')
 var db = require('./database/models')
 var productEditRouter = require('./routes/productEdit')
+var borrarRouter = require('./routes/borrar')
 
 var app = express();
 
@@ -72,6 +73,8 @@ app.use('/profile', profileRouter);
 app.use('/search-result', searchRouter);
 app.use('/profile-edit', editRouter);
 app.use('/product-edit', productEditRouter);
+app.use('/delete', borrarRouter);
+
 
 
 // catch 404 and forward to error handler
