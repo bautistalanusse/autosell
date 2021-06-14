@@ -6,11 +6,11 @@
 
 <body>
 	<!-- Header -->
-	<% if(locals.user.mail){ %>
-		<%- include('./partials/headerLogueado.ejs') %> 
-	<% } else{ %> 
-		<%- include('./partials/header.ejs') %>
-	<% } %> 
+	<% if(typeof user !='undefined' ){ %>
+		<%- include('./partials/headerLogueado.ejs') %>
+			<% } else{ %>
+				<%- include('./partials/header.ejs') %>
+					<% } %>
 	<!-- /Header -->
 
 	<!-- product detail -->
@@ -52,7 +52,7 @@
 						<% } %>
 					</section>
 
-					<% if (locals.user.mail) { %>
+					<% if (locals.user) { %>
 						<form class="form" action="" method="POST">
 							<input name="texto" class="form-input" type="text" value="" placeholder="Agregar comentario">
 							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
