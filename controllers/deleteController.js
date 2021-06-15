@@ -4,7 +4,10 @@ const op = db.Sequelize.Op;
 let deleteController = {
     delete: function (req, res) {
         db.Product.findByPk(req.params.id)
-            .then()
+            .then((data)  => {
+                data.destroy()
+                res.redirect('/profile')
+            })
         
     }
 }
