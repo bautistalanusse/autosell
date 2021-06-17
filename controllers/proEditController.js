@@ -18,7 +18,7 @@ index: function(req, res) {
                 where: { id: req.params.id }
             })
                 .then(() => {
-                   return res.redirect('/')
+                   return res.redirect('/profile')
                 })
                 .catch((error) => {
                     return res.send(error);

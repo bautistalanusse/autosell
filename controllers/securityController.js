@@ -21,7 +21,7 @@ let securityController = {
             res.redirect('/login?failed=true')
         })
         .catch((error) => {
-            throw error;
+            res.redirect('/login')
         })
     },
     register: function(req, res) {

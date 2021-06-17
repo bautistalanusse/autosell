@@ -19,10 +19,12 @@
 			<h2 class="products-title"> <%= auto.marca + " "+  auto.modelo + " "+ auto.anio + " "+  auto.color %> </h2> 
 			<% if (locals.user && locals.user.id == auto.id_usuarios) { %>
 			<p class="product-detail-description">
-				<a href="/product-edit/<%= auto.id %>">Editar</a>
+
+				<a href="/product-edit/<%= auto.id %>" class="btn btn-danger">Editar</a>
+
 			</p>
 			<p class="product-detail-description">
-				<a href="/delete/<%= auto.id %>">Borrar</a>
+				<a href="/delete/<%= auto.id %>" onclick="return confirm('Are you sure?') ? true : event.preventDefault()" class="btn btn-danger">Borrar</a>
 			</p>
 			<% } %>
 			
