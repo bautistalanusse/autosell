@@ -28,34 +28,14 @@ let productsController = {
         })
     },
 
-  /*   show2: function (req, res, next) {
-        db.Product.findByPk(req.params.id)
-            .then((data) => {
-                db.Comentario.findAll({
-                    where: [
-                        { id_producto: { [op.like]: req.params.id} }
-                    ],
-                })
-                    .then((comentario) => {
-                        db.Usuario.findAll()
-                            .then((nombre) => {
-                                res.render('product', {
-                                    comentario: comentario,
-                                    auto: data,
-                                    usuario: nombre,
-                                })
-
-                            })
-
-                    })
-
-            }) 
-    }, */
-
-    index: function (req, res,) {
+    comment: function (req, res,) {
+        let product = db.Product.findByPk(req.params.id);
+        product.update({ total_comments: product.comentarios + 1 }, {
+            where: { id: req.params.id }
+        });
         db.Comentario.create({...req.body, id_usuario: req.session.user.id, id_producto: req.params.id})
             .then(() => {
-                res.redirect("/")    
+                res.redirect("/product/" + req.params.id)    
             })
         
             .catch((error) => {

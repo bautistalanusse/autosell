@@ -38,6 +38,9 @@ module.exports = (sequelize, DataTypes) => {
         descripcion: {
             type: DataTypes.STRING
         },
+        total_comments: {
+            type: DataTypes.INTEGER
+        },
 
     }
 
