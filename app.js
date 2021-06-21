@@ -41,7 +41,7 @@ const privateRoutes = [
 ]
 app.use(flash());
 
-// Midelware cookies
+// Middleware cookies
 app.use(function(req, res, next){
   if(req.cookies.userId != undefined && req.session.user == undefined){
     db.Usuario.findByPk(req.cookies.userId)
@@ -55,7 +55,7 @@ app.use(function(req, res, next){
   }
 })
 
-// Midelware session
+// Middleware session
 app.use(function(req, res, next){
   if(req.session.user != undefined){
     res.locals.user = req.session.user

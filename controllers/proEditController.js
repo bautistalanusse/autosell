@@ -18,6 +18,7 @@ index: function(req, res) {
                 where: { id: req.params.id }
             })
                 .then(() => {
+                    req.flash('succesful', 'Producto editado')
                    return res.redirect('/profile')
                 })
                 .catch((error) => {

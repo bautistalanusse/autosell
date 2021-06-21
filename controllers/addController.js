@@ -20,7 +20,8 @@ let addController = {
             console.log(product);
                 db.Product.create(product)
                 .then(() => {
-                    res.redirect(res.get('/profile'))
+                    req.flash('succesful', 'Producto añadido correctamente')
+                    res.redirect('/profile')
                 })
                 .catch((error) => {
                     return res.send(error);
