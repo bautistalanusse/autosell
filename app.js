@@ -40,7 +40,7 @@ const privateRoutes = [
   '/profile', '/profile-edit', '/product-add', '/product-edit'
 ]
 
-
+// Midelware cookies
 app.use(function(req, res, next){
   if(req.cookies.userId != undefined && req.session.user == undefined){
     db.Usuario.findByPk(req.cookies.userId)
@@ -54,6 +54,7 @@ app.use(function(req, res, next){
   }
 })
 
+// Midelware session
 app.use(function(req, res, next){
   if(req.session.user != undefined){
     res.locals.user = req.session.user
@@ -65,9 +66,20 @@ app.use(function(req, res, next){
   next();
 });
 
+// get flash messages
+app.use(async function (req, res, next) {
+  res.locals.flash = {
+    success: await req.consumeFlash('success'),
+    info: await req.consumeFlash('info'),
+    danger: await req.consumeFlash('danger'),
+    warning: await req.consumeFlash('warning'),
+  }
+  next();
+});
+
+
 
 app.use(flash({ sessionKeyName: 'flashMessage' }));
-
 app.use('/', demoRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

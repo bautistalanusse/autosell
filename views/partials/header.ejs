@@ -57,3 +57,11 @@
         </nav>
     </div>
 </header>
+
+<% for(const key in flash) { %>
+    <% for(const msg of flash[key]) { %>
+        <div class="alert alert-<%= key %>" role="alert">
+            <%= msg %> 
+        </div>
+    <% } %>
+<% } %>
