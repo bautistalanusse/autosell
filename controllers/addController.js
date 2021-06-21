@@ -20,7 +20,7 @@ let addController = {
             console.log(product);
                 db.Product.create(product)
                 .then(() => {
-                    res.redirect('/')
+                    res.redirect(res.get('/profile'))
                 })
                 .catch((error) => {
                     return res.send(error);

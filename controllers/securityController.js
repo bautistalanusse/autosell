@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs')
 const db = require('../database/models')
 const op = db.Sequelize.Op;
+const { flash } = require('express-flash-message');
 
 let securityController = {
     login: function (req, res, next) {
@@ -9,16 +10,15 @@ let securityController = {
     authenticate: function (req, res) {
         db.Usuario.findOne({ where: { mail: req.body.mail }})
         .then((user) => {
-            console.log(user);
             if (bcrypt.compareSync(req.body.contrasena, user.contrasena )){
                 req.session.user = user;
                     if(req.body.rememberme){
                         res.cookie('userId', user.id,{ maxAge: 1000 * 60 * 60 * 24})
                     }
                 return res.redirect('/');
+            } else{
+                req.flash('danger', 'Mail/Contraseña incorrectos')
             }
-
-            res.redirect('/login?failed=true')
         })
         .catch((error) => {
             res.redirect('/login')

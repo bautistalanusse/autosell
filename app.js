@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+const { flash } = require('express-flash-message');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -52,6 +53,7 @@ app.use(function(req, res, next){
     next()
   }
 })
+
 app.use(function(req, res, next){
   if(req.session.user != undefined){
     res.locals.user = req.session.user
@@ -62,6 +64,9 @@ app.use(function(req, res, next){
   }
   next();
 });
+
+
+app.use(flash({ sessionKeyName: 'flashMessage' }));
 
 app.use('/', demoRouter);
 app.use('/', indexRouter);
