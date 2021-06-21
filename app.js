@@ -39,6 +39,7 @@ app.use(session(
 const privateRoutes = [
   '/profile', '/profile-edit', '/product-add', '/product-edit'
 ]
+app.use(flash());
 
 // Midelware cookies
 app.use(function(req, res, next){
