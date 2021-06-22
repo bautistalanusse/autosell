@@ -28,13 +28,13 @@ let productsController = {
         })
     },
 
-    comment: function (req, res,) {
-        let product = db.Product.findByPk(req.params.id);
+    comment: async function (req, res,) {
+        let product = await db.Product.findByPk(req.params.id);
         product.update({ total_comments: product.total_comments + 1 });
         
         db.Comentario.create({...req.body, id_usuario: req.session.user.id, id_producto: req.params.id})
             .then(() => {
-                res.redirect("/product/" + req.params.id)    
+                res.redirect("/products/" + req.params.id)    
             })
         
             .catch((error) => {
