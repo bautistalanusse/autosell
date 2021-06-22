@@ -48,8 +48,38 @@
 			</div>
 		<% } %> 
 		</div>
+<!-- /Novedades -->
+		<!-- Mas comentados -->
+		<div class="row">
+			<div class="col-12">
+				<br>
+				<br>
+				<br>
+				<br>
+				<h2 class="products-title">Mas comentados</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<% for (let i = 0; i < comentados.length; i++) { %>	 
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/products/<%= comentados[i].id %> ">
+						<figure class="product-box_image">
+							<img class="imagen-producto" src="/images/products/<%= comentados[i].url_img %>" alt=" <%= comentados[i].modelo %> ">
+						</figure>
+						<article class="product-box_data">
+							<h2><%=comentaods[i].marca + " "+  comentados[i].modelo + " "+ comentados[i].anio + " "+  comentados[i].color%></h2>
+							<p><%= comentados[i].descripcion%></p>
+							<p>Comentarios: <%= comentados[i].total_comments%></p>
+						</article>
+					</a>
+				</section>
+			</div>
+		<% } %> 
+		</div>
+				<!-- Mas comentados -->
+
 	</div>		
-	<!-- /Novedades -->
+	
 	
 
 
