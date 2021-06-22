@@ -4,12 +4,12 @@ let indexController = {
     index: function (req, res, next) {
         db.Product.findAll({
             order: [
-                ['updated_at', 'DESC']
+                ['created_at', 'DESC']
             ],
             limit: 4,
         })
         .then((novedades) => {
-            db.product.findAll({
+            db.Product.findAll({
                 order: [[
                     "total_comments", 'DESC'
                 ] ],
