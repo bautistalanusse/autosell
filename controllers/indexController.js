@@ -9,11 +9,22 @@ let indexController = {
             limit: 4,
         })
         .then((novedades) => {
-            res.render('index', {
-                autos: novedades,
+            db.product.findAll({
+                order: [[
+                    "total_comments", 'DESC'
+                ] ],
+                limit:8
+            })
+            .then(comentados => {
+                res.render('index', {
+                    autos: novedades,
+                    comentados: comentados,
+                }) 
+
             })
         })    
     },
+
 }
 
 module.exports = indexController;
