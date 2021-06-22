@@ -180,6 +180,14 @@ hr {
 .fa-android{
 	font-size:3em;
 }
+.row{
+  font-size: 110%;
+  margin-left: none;
+  margin-right: none;
+}
+.btn{
+  font-size: 110%;
+}
 @media screen and (max-width: 640px) {
 	.main-form{width: 90%;}
 	.company__info{

@@ -15,12 +15,13 @@ let securityController = {
                     if(req.body.rememberme){
                         res.cookie('userId', user.id,{ maxAge: 1000 * 60 * 60 * 24})
                     }
-                return res.redirect('/');
+                return res.redirect('/profile');
             } else{
                 req.flash('danger', 'Mail/Contraseña incorrectos')
             }
         })
         .catch((error) => {
+            req.flash('danger', 'Mail/Contraseña incorrectos')
             res.redirect('/login')
         })
     },

@@ -7,6 +7,7 @@ let deleteController = {
             .then((data)  => {
                 data.destroy()
                 res.redirect('/profile')
+                req.flash('success', 'Produto eliminado.')
             })
         
     }
