@@ -15,14 +15,34 @@ let indexController = {
                 ] ],
                 limit:8
             })
-            .then(comentados => {
-                res.render('index', {
-                    autos: novedades,
-                    comentados: comentados,
-                }) 
-
+            .then((comentados) => {
+                db.Categoria.findAll()
+                .then((categorias) => {
+                    res.render('index', {
+                        autos: novedades,
+                        comentados: comentados,
+                        categorias: categorias,
+                    })
+                })
             })
         })    
+    },
+
+    category: function (req, res, next) {
+        db.Product.findAll({
+            where: [
+                { id_categoria: req.params.categoria }
+            ],
+        })
+        .then((data)=> {
+            db.Categoria.findAll()
+            .then((categorias) => {
+                res.render('categoria', {
+                    autos: data,
+                    categorias: categorias,
+                })
+            })
+        })
     },
 
 }

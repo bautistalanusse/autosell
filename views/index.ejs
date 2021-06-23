@@ -20,12 +20,32 @@
 	</div>
 	<!-- /Banner -->
 
+	<!-- /Categorias -->
+		
+			<div class="container overflow-hidden">
+				<div class="col-12">
+					<br>
+					<br>
+					<h2 class="products-title">Categorias</h2>
+					<br>
+					<br>
+				</div>
+				<div class="row gx-5">
+					<% for( let i = 0; i < categorias.length; i++ ) { %>
+						<div class="col">
+							<a href="/categoria/<%= categorias[i].id %> "><div class="categoria" > <h2><%= categorias[i].categoria  %> </h2> </div></a>
+						</div>
+					<% } %>
+				</div>
+			 </div>
+			</div>
+
+	<!-- /Categorias -->
+	
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<br>
-				<br>
 				<br>
 				<br>
 				<h2 class="products-title">Novedades</h2>

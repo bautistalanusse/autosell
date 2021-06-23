@@ -41,6 +41,10 @@ module.exports = (sequelize, DataTypes) => {
         total_comments: {
             type: DataTypes.INTEGER
         },
+        id_categoria: {
+            type: DataTypes.STRING
+        },
+
 
     }
 
@@ -59,6 +63,10 @@ module.exports = (sequelize, DataTypes) => {
         Product.hasMany(models.Comentario, {
             as: 'comentarios',
             foreignKey: 'id_producto',
+        })
+        Product.belongsTo(models.Categoria, {
+            as: 'categoria',
+            foreignKey: 'id_categoria',
         })
     }
 

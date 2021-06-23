@@ -160,8 +160,15 @@ hr {
   border-bottom: solid 1px var(--gray);
 }
 
+.categoria{
+  text-align: center;
+  background-color: #ff5c5c ;
+  border-radius: 20px;
+  height: 40px;
+  width: 150px;
+  padding-top: 8px;
 
-
+}
 /*====== Login ======*/
 
 .main-form{
@@ -652,5 +659,6 @@ textarea.form-input {
   /* height: 100px; */
   width: 150px;
 }
+
 }
 

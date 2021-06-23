@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<%- include('./partials/head.ejs') %> 
+
+<body>
+	<!-- Header -->
+	<% if(typeof user != 'undefined'){ %>
+		<%- include('./partials/headerLogueado.ejs') %> 
+	<% } else{ %> 
+		<%- include('./partials/header.ejs') %>
+	<% } %> 
+	 
+	<!-- /Header -->
+
+	<!-- /Categorias -->
+		
+    <div class="container overflow-hidden">
+        <div class="col-12">
+            <br>
+            <br>
+            <h2 class="products-title">Categorias</h2>
+            <br>
+            <br>
+        </div>
+        <div class="row gx-5">
+            <% for( let i = 0; i < categorias.length; i++ ) { %>
+                <div class="col">
+                    <a href="/categoria/<%= categorias[i].id %> "><div class="categoria" > <h2><%= categorias[i].categoria  %> </h2> </div></a>
+                </div>
+            <% } %>
+        </div>
+     </div>
+    </div>
+		
+
+	<!-- /Categorias -->
+	
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<!-- Show the "ultimos" products -->
+			<% for (let i = 0; i < autos.length; i++) { %>	 
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/products/<%= autos[i].id %> ">
+						<figure class="product-box_image">
+							<img class="imagen-producto" src="/images/products/<%= autos[i].url_img %>" alt=" <%= autos[i].modelo %> ">
+						</figure>
+						<article class="product-box_data">
+							<h2><%=autos[i].marca + " "+  autos[i].modelo + " "+ autos[i].anio + " "+  autos[i].color%></h2>
+							<p><%= autos[i].descripcion%></p>
+							<p>Comentarios: <%= autos[i].total_comments%></p>
+						</article>
+					</a>
+				</section>
+			</div>
+		<% } %> 
+		</div>
+<!-- /Novedades -->
+
+	</div>		
+	
+	
+
+
+	<!-- footer -->
+	<%- include('./partials/footer.ejs') %> 
+	<!-- /footer -->
+</body>	
+</html>

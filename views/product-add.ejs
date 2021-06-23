@@ -49,6 +49,18 @@
 								<input type="integer" name="precio" id="precio" class="form__input" placeholder="Precio">
 							</div>
 							<div class="row">
+									<select id="categoria" name="categoria">
+										<% for( let i = 0; i < categorias.length; i++ ) { %>
+											<option value="<%= categorias[i].categoria %> "><%= categorias[i].categoria %> </option>
+											
+										<% } %>
+  										  
+									</select>
+							</div>
+							<br>
+							<br>
+							<br>
+							<div class="row">
 							</label>
 									<input type="file" class="form-control" id="product" name="product"> </label>	
 							</div>

@@ -28,8 +28,12 @@ let addController = {
                 })
         }
         if (req.method == 'GET') {
-            return res.render('product-add')
-
+            db.Categoria.findAll()
+            .then(categorias => {
+                res.render('product-add',{
+                    categorias: categorias
+                })
+            })
         }
 
     },
