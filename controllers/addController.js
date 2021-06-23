@@ -15,7 +15,8 @@ let addController = {
                 anio: req.body.anio,
                 caracteristicas: req.body.caracteristicas,
                 precio: req.body.precio,
-                url_img: req.file.filename
+                url_img: req.file.filename,
+                id_categoria: req.body.categoria,
             }
             console.log(product);
                 db.Product.create(product)
