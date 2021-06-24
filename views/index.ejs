@@ -74,8 +74,6 @@
 			<div class="col-12">
 				<br>
 				<br>
-				<br>
-				<br>
 				<h2 class="products-title">Mas comentados</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
@@ -98,7 +96,37 @@
 		</div>
 				<!-- Mas comentados -->
 
+				<!-- Todos nuestros autos -->
+				<div class="row">
+					<div class="col-12">
+						<br>
+						<br>
+						<h2 class="products-title">Todos Nuestros Autos</h2>
+					</div>
+					<!-- Show the "ultimos" products -->
+					<% for (let i = 0; i < todos.length; i++) { %>	 
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="/products/<%= todos[i].id %> ">
+								<figure class="product-box_image">
+									<img class="imagen-producto" src="/images/products/<%= todos[i].url_img %>" alt=" <%= todos[i].modelo %> ">
+								</figure>
+								<article class="product-box_data">
+									<h2><%=todos[i].marca + " "+  todos[i].modelo + " "+ todos[i].anio + " "+  todos[i].color%></h2>
+									<p><%= todos[i].descripcion%></p>
+									<p>Comentarios: <%= todos[i].total_comments%></p>
+								</article>
+							</a>
+						</section>
+					</div>
+				<% } %> 
+				</div>
+
+				<!-- Todos nuestros autos -->
+
+
 	</div>		
+	
 	
 	
 

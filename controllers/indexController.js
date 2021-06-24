@@ -13,16 +13,21 @@ let indexController = {
                 order: [[
                     "total_comments", 'DESC'
                 ] ],
-                limit:8
+                limit:4
             })
             .then((comentados) => {
                 db.Categoria.findAll()
                 .then((categorias) => {
-                    res.render('index', {
-                        autos: novedades,
-                        comentados: comentados,
-                        categorias: categorias,
-                    })
+                    db.Product.findAll()
+                        .then(todos => {
+                            res.render('index', {
+                                autos: novedades,
+                                comentados: comentados,
+                                categorias: categorias,
+                                todos: todos,
+                            })
+                        })
+                    
                 })
             })
         })    
