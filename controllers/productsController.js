@@ -30,19 +30,25 @@ let productsController = {
 
     comment: async function (req, res,) {
         let product = await db.Product.findByPk(req.params.id);
-        if (req.body.comenta) {
+        if (req.body.texto.length == 0) {
+             req.flash('danger', 'Debe incluir un comentario.')
+             res.redirect(req.get('Referrer'));
+             
+        } else {
             
+            product.update({ total_comments: product.total_comments + 1 });
+
+            db.Comentario.create({ ...req.body, id_usuario: req.session.user.id, id_producto: req.params.id })
+                .then(() => {
+                    res.redirect("/products/" + req.params.id)
+                })
+
+                .catch((error) => {
+                    res.send(error)
+                })
+
         }
-        product.update({ total_comments: product.total_comments + 1 });
-        
-        db.Comentario.create({...req.body, id_usuario: req.session.user.id, id_producto: req.params.id})
-            .then(() => {
-                res.redirect("/products/" + req.params.id)    
-            })
-        
-            .catch((error) => {
-                res.send(error)
-            })
+       
     },
 }
 
