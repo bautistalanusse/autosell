@@ -30,6 +30,9 @@ let productsController = {
 
     comment: async function (req, res,) {
         let product = await db.Product.findByPk(req.params.id);
+        if (req.body.comenta) {
+            
+        }
         product.update({ total_comments: product.total_comments + 1 });
         
         db.Comentario.create({...req.body, id_usuario: req.session.user.id, id_producto: req.params.id})

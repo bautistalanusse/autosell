@@ -68,6 +68,7 @@ app.use(function(req, res, next){
 });
 
 // get flash messages
+
 app.use(async function (req, res, next) {
   res.locals.flash = {
     success: await req.consumeFlash('success'),
@@ -80,7 +81,7 @@ app.use(async function (req, res, next) {
 
 
 
-app.use(flash({ sessionKeyName: 'flashMessage' }));
+
 app.use('/', demoRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

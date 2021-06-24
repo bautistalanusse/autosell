@@ -18,6 +18,7 @@ let securityController = {
                 return res.redirect('/');
             } else{
                 req.flash('danger', 'Mail/Contraseña incorrectos')
+                  res.redirect('/login')
             }
         })
         .catch((error) => {
