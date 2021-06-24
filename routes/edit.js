@@ -20,8 +20,8 @@ var upload = multer({ storage: storage})
 router.get('/', editController.udpdate);
 router.post('/', upload.single('foto'), editController.udpdate);
 
-routrt.get('/password', editController.show)
-routrt.post('/password', editController.password)
+router.get('/password', editController.show)
+router.post('/password', editController.password)
 
 
 
