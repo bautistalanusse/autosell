@@ -37,6 +37,30 @@ udpdate: function(req, res) {
         }
 
     },
+
+    password: function (req, res) {
+        db.Usuario.findByPk(req.session.user.id)
+            .then((user) => {
+                if (bcrypt.compareSync(req.body.contrasena, user.contrasena)) {
+                    db.Usuario.update()
+                    return res.redirect('/');
+                } else {
+                    req.flash('danger', 'Mail/Contraseña incorrectos')
+                }
+            })
+            .catch((error) => {
+                res.redirect('/login')
+            })
+    },
+
+    show: function (req, res) {
+        db.Usuario.findByPk(req.session.user.id)
+            .then(data => {
+                res.render('password-change', {
+                    user: data,
+                })
+            })
+    },
     
 }
 module.exports = editController;
