@@ -50,7 +50,7 @@ udpdate: function(req, res) {
                 console.log('hola')
                 user.update({ contrasena: bcrypt.hashSync(req.body.new_contrasena) });
                 res.redirect('/profile')
-                req.flash('succese', 'Su contraseña a sido cambiada con exito')
+                req.flash('success', 'Su contraseña a sido cambiada con exito')
             } else {
                 req.flash('danger', 'Contraseña incorrecta')
                 res.redirect(req.get('Referrer'))
