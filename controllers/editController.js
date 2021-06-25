@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs')
+const { UnsupportedMediaType } = require('http-errors');
 const db = require('../database/models')
 const op = db.Sequelize.Op;
 
@@ -38,19 +40,29 @@ udpdate: function(req, res) {
 
     },
 
-    password: function (req, res) {
-        db.Usuario.findByPk(req.session.user.id)
-            .then((user) => {
-                if (bcrypt.compareSync(req.body.contrasena, user.contrasena)) {
-                    db.Usuario.update()
-                    return res.redirect('/');
-                } else {
-                    req.flash('danger', 'Mail/Contraseña incorrectos')
-                }
-            })
-            .catch((error) => {
-                res.redirect('/login')
-            })
+    password:  async function (req, res) {
+        let user = await db.Usuario.findByPk(req.session.user.id)
+        if (bcrypt.compareSync(req.body.contrasena, user.contrasena)) {
+            let contrasena = { contrasena: bcrypt.hashSync(req.body.new_contrasena)}
+            user.update(contrasena);
+            res.redirect('/profile')
+
+        } else {
+            req.flash('danger', 'Contraseña incorrecta')
+            res.redirect(req.get('Referrer'))
+        }
+        // db.Usuario.findByPk(req.session.user.id)
+        //     .then((user) => {
+        //         if (bcrypt.compareSync(req.body.contrasena, user.contrasena)) {
+        //             db.Usuario.update()
+        //             return res.redirect('/');
+        //         } else {
+        //             req.flash('danger', 'Mail/Contraseña incorrectos')
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         res.redirect('/login')
+        //     })
     },
 
     show: function (req, res) {
