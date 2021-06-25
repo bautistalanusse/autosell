@@ -41,28 +41,26 @@ udpdate: function(req, res) {
     },
 
     password:  async function (req, res) {
-        let user = await db.Usuario.findByPk(req.session.user.id)
-        if (bcrypt.compareSync(req.body.contrasena, user.contrasena)) {
-            let contrasena = { contrasena: bcrypt.hashSync(req.body.new_contrasena)}
-            user.update(contrasena);
-            res.redirect('/profile')
+        try {
+            let user = await db.Usuario.findByPk(req.session.user.id)
+            
+            
+            
+            if (bcrypt.compareSync(req.body.contrasena, user.contrasena)) {
+                console.log('hola')
+                user.update({ contrasena: bcrypt.hashSync(req.body.new_contrasena) });
+                res.redirect('/profile')
+                req.flash('succese', 'Su contraseña a sido cambiada con exito')
+            } else {
+                req.flash('danger', 'Contraseña incorrecta')
+                res.redirect(req.get('Referrer'))
+            }
 
-        } else {
-            req.flash('danger', 'Contraseña incorrecta')
-            res.redirect(req.get('Referrer'))
+        } catch (error) {
+            console.log(error)
         }
-        // db.Usuario.findByPk(req.session.user.id)
-        //     .then((user) => {
-        //         if (bcrypt.compareSync(req.body.contrasena, user.contrasena)) {
-        //             db.Usuario.update()
-        //             return res.redirect('/');
-        //         } else {
-        //             req.flash('danger', 'Mail/Contraseña incorrectos')
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         res.redirect('/login')
-        //     })
+        
+        
     },
 
     show: function (req, res) {
